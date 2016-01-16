@@ -26,3 +26,45 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+<div class="col-md-12">
+    <label class="col-md-2 control-label" for="email-input">Email Input</label>
+    <div class="col-md-4">
+        <input type="email" id="jEmail" name="Email" class="form-control userEmailId" placeholder="Enter Email">
+    </div>
+    <button type="button" id="submit" style="color:black">Submit</button>
+</div>
+
+@section Scripts {
+
+<script type="text/javascript">
+
+   
+    $("#submit").on('click', function () {
+        var userInfo = {};
+        userInfo.Email = $("#jEmail").val();
+        console.log(userInfo.Email);
+       
+        sendMessage(userInfo,onSuccess,onError); 
+    });
+    
+    sendMessage = function (data, onSuccess, onError) {
+       var url = "/api/message/ConfirmEmail";
+        var setting = {
+            cache: false,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            data: data,
+            success: onSuccess,
+            error: onError,
+            type: "post"
+        };
+        $.ajax(url, setting);
+    }
+
+    onSuccess = function (response) {
+        console.log(response);
+    }
+    onError = function (error) {
+        console.log(error);
+    }
+</script>
+}
