@@ -231,6 +231,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Template\CompletionEmail.html" />
     <Content Include="Template\ScheduledConfirm.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
