@@ -16,7 +16,7 @@ namespace JMS.Services
     {
         private static readonly string _siteAdminEmailAddress = ConfigurationManager.AppSettings["SiteAdminEmailAddress"];
 
-        public static async Task SendConfirmationEmail(MailModel model) //****guide
+        public static async Task SendConfirmationEmail(JuryModel model) //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
             myMessage.AddTo(model.Email);

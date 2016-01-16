@@ -15,7 +15,7 @@ namespace JMS.Controllers
     {
         
         [Route("ConfirmEmail"), HttpPost]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> SendConfirmMail(MailModel model)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> SendConfirmMail(JuryModel model)
         {
             if (!ModelState.IsValid)
             {
