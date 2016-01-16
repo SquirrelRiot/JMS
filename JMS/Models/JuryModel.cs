@@ -11,5 +11,7 @@ namespace JMS.Models
         public bool CheckedIn { get; set; }
         public bool Completed { get; set; }
         public int DaysAvailable { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
     }
 }
