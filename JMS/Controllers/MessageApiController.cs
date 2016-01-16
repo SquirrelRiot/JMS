@@ -7,7 +7,9 @@ using System.Web.Http;
 
 namespace JMS.Controllers
 {
-    public class MessageAPiController : ApiController
+ 
+    [RoutePrefix("api/message")]
+    public class MessageApiController : ApiController
     {
     }
 }
