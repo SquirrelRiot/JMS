@@ -35,5 +35,13 @@ namespace JMS.Controllers
             response.Item = JuryList.GetGroup(group);
             return Request.CreateResponse(response);
         }
+
+        [Route("List"), HttpGet]
+        public HttpResponseMessage GetList()
+        {
+            ItemResponse<object> response = new ItemResponse<object>();
+            response.Item = JuryList.GetAll();
+            return Request.CreateResponse(response);
+        }
     }
 }

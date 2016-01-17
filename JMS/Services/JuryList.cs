@@ -92,5 +92,11 @@ namespace JMS.Services
             }
             return model;
         }
+
+        public static List<JuryModel> GetAll()
+        {
+            return _list;
+        }
     }
+    
 }

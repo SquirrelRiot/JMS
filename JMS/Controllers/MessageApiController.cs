@@ -28,14 +28,14 @@ namespace JMS.Controllers
 
         }
         [Route("Complete"), HttpPost]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> Completion(JuryModel model)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> Completion(List<string> emails)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            await MessagingService.CompletionMail(model);
+            await MessagingService.CompletionMail(emails);
 
             return Request.CreateResponse();
 

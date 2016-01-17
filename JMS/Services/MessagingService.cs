@@ -28,11 +28,14 @@ namespace JMS.Services
             await SendAsync(myMessage);
 
         }
-        public static async Task CompletionMail(JuryModel model) //****guide
+        public static async Task CompletionMail(List<string> emails) //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
-      
-            myMessage.AddTo(model.Email);
+            for (int i = 0; i < emails.Count(); i++)
+            {
+                myMessage.AddTo(emails[i]);
+               
+            }
             myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
             myMessage.Subject = "Confirm Email";
             string path = HttpContext.Current.Server.MapPath("~/Template/CompletionEmail.html");

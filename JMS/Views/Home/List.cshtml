@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<div id="ListTable">
+    <table>
+        <thead>
+            <tr>
+            <th>Juror Id</th>
+            <th>Email </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="jurorList">
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a id="email" class="btn btn-primary">Send Email</a>
+
+
+
+@section scripts {
+
+    <script type="text/javascript">
+        var listEmail = [];
+
+        loadCoursesList = function (onSuccess, onError) {
+            var url = "/api/jury/list";
+            var settings = {
+                cache: false
+                , contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+                , dataType: "json"
+                , success: onSuccess
+                , error: onError
+                , type: "GET"
+            };
+
+            $.ajax(url, settings);
+        }
+
+        onSuccess = function (data) {
+
+            $("#jurorList").html("");
+
+            for (var i = 0; i < data.Item.length; i++) {
+                var listEmail = data.Item[i];
+                // console.log(listEmail);
+                var id = "<td>" + listEmail.JuryId + "</td>";
+                var email = "<td>" + listEmail.Email + "</td>";
+                $("#jurorList").append(id,email);
+
+            }
+        }
+        onError = function (response) {
+            console.log(response);
+        }
+
+        sendEmail = function (data, onEmailData, onEmailError) {
+            var url = "/api/message/Complete";
+            var settings = {
+                cache: false
+                , contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+                , dataType: "json"
+                , data: data
+                , success: onEmailSuccess
+                , error: onEmailError
+                , type: "Post"
+            };
+
+            $.ajax(url, settings);
+        }
+
+        onEmailSuccess = function (response) {
+            console.log(response);
+        }
+        onEmailError = function (response) {
+            console.log(response);
+        }
+
+        loadCoursesList(onSuccess, onError);
+        $("#email").on("click", function () {
+            var data = $("#jurorList").val();
+            sendEmail(data, onEmailSuccess, onEmailError);
+        });
+
+
+    </script>
+
+}
