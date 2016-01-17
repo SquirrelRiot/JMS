@@ -28,15 +28,13 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul id="nav-links" class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Confirmation", "View2", "Home")</li>
-                    <li>@Html.ActionLink("Info", "FAQ", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Check In", "Cases", "Home")</li>
+                    <li>@Html.ActionLink("Completion", "List", "Home")</li>
                 </ul>
             </div>
         </div>
     </nav>
- 
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -50,3 +48,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
