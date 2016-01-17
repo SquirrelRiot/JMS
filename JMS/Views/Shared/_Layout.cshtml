@@ -3,41 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - The Honor System</title>
-    
+    <title>@ViewBag.Title - Jury Adjourned</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text:700' rel='stylesheet' type='text/css'>
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
+    <nav id="nav-main" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button id="nav-header" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Honor System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div>
+                    <a id="nav-logo" class="navbar-brand" href="~/Views/Home/Index.cshtml"><img src="~/images/Jury-Nav-Logo_x200.png" /></a>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul id="nav-links" class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Confirmation", "View2", "Home")</li>
+                    <li>@Html.ActionLink("Info", "Info", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>*@
+    </nav>
+ 
     <div class="container body-content">
         @RenderBody()
         <hr />
-        @*<footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+        <footer>
+            <p class="footer-text pull-right">Thank You for Using <span class="font-logo">Jury Adjourned</span></p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
