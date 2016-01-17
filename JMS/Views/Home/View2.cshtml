@@ -1,35 +1,20 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "View2";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<style>
-    .col-centered {
-        float: none;
-        margin: 0 auto;
-    }
-</style>
-
-
-<body>
-
-    <div class="row">
-        <h2 class="col-centered">You are required to attend jury duty for L.A County on:</h2>
+    <div class="row marT25">
+        <h2 class="text-center">You are required<br />to attend jury duty<br />for L.A County on:</h2>
         <br /><br />
-        <h3 class="col-centered">Date: <span id="spanDate"> </span>  <span id="otherDate"> </span></h3>
+        <h3 class="text-center">Date: <span id="spanDate"> </span>  <span id="otherDate"> </span></h3>
         <br /><br />
-        <h3 class="col-centered">Check-in: 11am</h3>
+        <h3 class="text-center">Check-in: 11am</h3>
     </div>
     <br />
-    <div class="col-centered">
-        <button id="confirm" onclick="confirm()" class="btn-primary">Confirm</button>
-        <button id="reschedule" class="btn-danger">Reschedule</button>
+    <div>
+        <button id="confirm" onclick="confirm()" class="btn btn-primary center-block">Confirm</button>
+        <button id="reschedule" class="btn btn-danger">Reschedule</button>
     </div>
-
-</body>
 
 
 <script type="text/javascript">

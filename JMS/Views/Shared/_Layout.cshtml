@@ -25,12 +25,26 @@
                     <a id="nav-logo" class="navbar-brand" href="~/Views/Home/Index.cshtml"><img src="~/images/Jury-Nav-Logo_x200.png" /></a>
                 </div>
             </div>
-
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul id="nav-links" class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Confirmation", "View2", "Home")</li>
-                    <li>@Html.ActionLink("Info", "Info", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jury Service<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Qualifications", "Qulify", "Home")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("About Jury Service", "AboutJuryService", "Home")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Types of Juries", "TypesOfjury", "Home")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Jury Pay", "JuryPay", "Home")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Jury Scam", "JuryScam", "Home")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
