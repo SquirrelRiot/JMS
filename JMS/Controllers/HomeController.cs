@@ -44,11 +44,31 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult JuryQualify()
         {
             return View();
         }
 
-
+        public ActionResult AboutJuryService()
+        {
+            return View();
+        }
+     
+        public ActionResult TypesOfjury()
+        {
+            return View();
+        }
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+        public ActionResult JuryPay()
+        {
+            return View();
+        }
+        public ActionResult JuryScam()
+        {
+            return View();
+        }
     }
 }

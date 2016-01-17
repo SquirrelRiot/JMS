@@ -279,11 +279,16 @@
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\Qulify.cshtml" />
     <Content Include="Views\Home\Cases.cshtml" />
     <Content Include="Views\Home\View2.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AboutJuryService.cshtml" />
+    <Content Include="Views\Home\TypesOfjury.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\JuryPay.cshtml" />
+    <Content Include="Views\Home\JuryScam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
