@@ -1,13 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Cases";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cases</h2>
 
-<div class="form-group">
-    <div class="col-lg-10">
+<div>
+    <h2 class="text-center ">Cases</h2>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-primary marT25">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select a Group</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group marT25">
         <select class="form-control" id="cases" name="cases">
             <option value="groupA">Group A</option>
             <option value="groupB">Group B</option>
@@ -15,13 +23,30 @@
         <br>
     </div>
 </div>
-
-<a id="caseSelect" class="btn btn-primary">Select</a>
-<a id="email" class="btn btn-primary">Notify Jurors</a>
-
-<div>
-    <ul id="group"></ul>
+                <div class="col-md-3 col-sm-3 marT25">
+                    <a id="caseSelect" class="btn btn-primary center-block">Select</a>
+                </div>
+                <div class="col-md-3 col-sm-3 marT25">
+                    <a id="sms" class="btn btn-primary center-block">Notify Jurors</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div id="jurorList" class="row hidden">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">List of Jurors</h3>
+            </div>
+            <div class="panel-body">
+                <ul id="group" class="list-group marB0"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section scripts {
 
@@ -43,27 +68,33 @@
             $.ajax(url, settings);
         }
 
-        //textJurors = function (group, onSuccess, onError) {
-        //    var url = "/api/message/" + group;
-        //    var settings = {
-        //        cache: false,
-        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        //        type: 'get',
-        //        dataType: "json",
-        //        success: onSuccess,
-        //        error: onError
-        //    }
+        textJurors = function (onSuccess, onError) {
+            var url = "/api/message";
+            var settings = {
+                cache: false,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                type: 'get',
+                dataType: "json",
+                success: onSuccess,
+                error: onError
+            }
 
-        //    $.ajax(url, settings);
-        //}
+            $.ajax(url, settings);
+        }
 
         groupSuccess = function (data) {
+
             $("#group").html("");
             currentGroup = (data.Item);
             for (var i = 0; i < currentGroup.length; i++) {
-                var id = "<li>" + currentGroup[i] + "</li>";
+                var id = "<li class='list-group-item'><span class='badge'></span>" + currentGroup[i] + "</li>";
                 $("#group").append(id);
             }
+            $("#jurorList").removeClass("hidden");
+        }
+
+        textSuccess = function () {
+            console.log("sms success");
         }
 
         ajaxError = function (error) {
@@ -75,6 +106,9 @@
             getCase(group, groupSuccess, ajaxError);
         });
 
+        $("#sms").on("click", function () {
+            textJurors(textSuccess, ajaxError);
+        });
+
     </script>    
-    
 }
