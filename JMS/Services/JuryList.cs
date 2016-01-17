@@ -20,7 +20,7 @@ namespace JMS.Services
                 new JuryModel() {JuryId = 12345, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "2134234444", Email = "test@email.com"},
                 new JuryModel() {JuryId = 12364, CheckedIn = false, Completed = false, DaysAvailable = 1, Phone = "8888888888", Email = "person@email.com"},
                 new JuryModel() {JuryId = 12532, CheckedIn = false, Completed = false, DaysAvailable = 5, Phone = "1111111111", Email = "jury@email.com"},
-                new JuryModel() {JuryId = 32152, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "1112331111", Email = "jury2@email.com"  }
+                new JuryModel() {JuryId = 32152, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "1112331111", Email = "jury2@email.com"}
             };
 
             _groupA = new List<Int32>()
@@ -79,5 +79,11 @@ namespace JMS.Services
                     return _groupNA;
             }
         }
+
+        public static List<JuryModel> GetAll()
+        {
+            return _list;
+        }
+
     }
 }

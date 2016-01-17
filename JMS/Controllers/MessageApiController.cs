@@ -41,5 +41,11 @@ namespace JMS.Controllers
 
         }
 
+        [Route(), HttpGet]
+        public void SendText()
+        {
+            MessagingService.SendText();
+        }
+
     }
 }

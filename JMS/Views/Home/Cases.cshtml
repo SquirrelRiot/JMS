@@ -17,7 +17,7 @@
 </div>
 
 <a id="caseSelect" class="btn btn-primary">Select</a>
-<a id="email" class="btn btn-primary">Notify Jurors</a>
+<a id="sms" class="btn btn-primary">Notify Jurors</a>
 
 <div>
     <ul id="group"></ul>
@@ -43,19 +43,19 @@
             $.ajax(url, settings);
         }
 
-        //textJurors = function (group, onSuccess, onError) {
-        //    var url = "/api/message/" + group;
-        //    var settings = {
-        //        cache: false,
-        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        //        type: 'get',
-        //        dataType: "json",
-        //        success: onSuccess,
-        //        error: onError
-        //    }
+        textJurors = function (onSuccess, onError) {
+            var url = "/api/message";
+            var settings = {
+                cache: false,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                type: 'get',
+                dataType: "json",
+                success: onSuccess,
+                error: onError
+            }
 
-        //    $.ajax(url, settings);
-        //}
+            $.ajax(url, settings);
+        }
 
         groupSuccess = function (data) {
             $("#group").html("");
@@ -66,6 +66,10 @@
             }
         }
 
+        textSuccess = function () {
+            console.log("success");
+        }
+
         ajaxError = function (error) {
             console.log(error);
         }
@@ -73,6 +77,10 @@
         $("#caseSelect").on("click", function () {
             var group = $("#cases").val();
             getCase(group, groupSuccess, ajaxError);
+        });
+
+        $("#sms").on("click", function () {
+            textJurors(textSuccess, ajaxError);
         });
 
     </script>    
