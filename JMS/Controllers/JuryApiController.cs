@@ -12,8 +12,7 @@ namespace JMS.Controllers
     [RoutePrefix("api/jury")]
     public class JuryApiController : ApiController
     {
-        [Route("check")]
-        [HttpPut]
+        [Route("check"), HttpPut]
         public HttpResponseMessage CheckInJury(JuryModel model)
         {
             ItemResponse<Boolean> response = new ItemResponse<Boolean>();
@@ -21,12 +20,19 @@ namespace JMS.Controllers
             return Request.CreateResponse(response);
         }
 
-        [Route("complete")]
-        [HttpPut]
+        [Route("complete"), HttpPut]
         public HttpResponseMessage CompletedJury(JuryModel model)
         {
             ItemResponse<Boolean> response = new ItemResponse<Boolean>();
             response.Item = JuryList.Completed(model.JuryId);
+            return Request.CreateResponse(response);
+        }
+
+        [Route("case/{group}"), HttpGet]
+        public HttpResponseMessage GetGroup(string group)
+        {
+            ItemResponse<object> response = new ItemResponse<object>();
+            response.Item = JuryList.GetGroup(group);
             return Request.CreateResponse(response);
         }
     }
