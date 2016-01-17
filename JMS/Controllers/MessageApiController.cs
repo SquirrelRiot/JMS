@@ -27,6 +27,19 @@ namespace JMS.Controllers
             return Request.CreateResponse();
 
         }
+        [Route("Complete"), HttpPost]
+        public async System.Threading.Tasks.Task<HttpResponseMessage> Completion(JuryModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+
+            await MessagingService.CompletionEMail(model);
+
+            return Request.CreateResponse();
+
+        }
 
     }
 }
