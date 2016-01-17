@@ -10,6 +10,8 @@ namespace JMS.Services
     {
         private static List<JuryModel> _list; // Static List instance
         private static List<Int32> _groupA;
+        private static List<Int32> _groupB;
+        private static List<Int32> _groupNA;
 
         static JuryList()
         {
@@ -17,13 +19,25 @@ namespace JMS.Services
             {
                 new JuryModel() {JuryId = 12345, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "2134234444", Email = "test@email.com"},
                 new JuryModel() {JuryId = 12364, CheckedIn = false, Completed = false, DaysAvailable = 1, Phone = "8888888888", Email = "person@email.com"},
-                new JuryModel() {JuryId = 12532, CheckedIn = false, Completed = false, DaysAvailable = 5, Phone = "1111111111", Email = "jury@email.com"}
+                new JuryModel() {JuryId = 12532, CheckedIn = false, Completed = false, DaysAvailable = 5, Phone = "1111111111", Email = "jury@email.com"},
+                new JuryModel() {JuryId = 32152, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "1112331111", Email = "jury2@email.com"  }
             };
 
             _groupA = new List<Int32>()
             {
                 12345,
                 12364
+            };
+
+            _groupB = new List<Int32>()
+            {
+                32152,
+                12532
+            };
+
+            _groupNA = new List<Int32>()
+            {
+
             };
         }
 
@@ -53,9 +67,17 @@ namespace JMS.Services
             return false;
         }
 
-        public static List<Int32> GetGroupA()
+        public static List<Int32> GetGroup(string group)
         {
-            return _groupA;
+            switch (group)
+            {
+                case "groupA":
+                    return _groupA;
+                case "groupB":
+                    return _groupB;
+                default:
+                    return _groupNA;
+            }
         }
     }
 }

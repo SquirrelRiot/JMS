@@ -13,6 +13,11 @@ namespace JMS.Controllers
             return View();
         }
 
+        public ActionResult Cases()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
