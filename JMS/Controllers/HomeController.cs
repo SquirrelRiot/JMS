@@ -26,5 +26,14 @@ namespace JMS.Controllers
 
             return View();
         }
+
+        public ActionResult View2()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+
     }
 }
