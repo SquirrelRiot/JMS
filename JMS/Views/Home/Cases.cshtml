@@ -17,6 +17,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group marT25">
         <select class="form-control" id="cases" name="cases">
+            <option> Select</option>
             <option value="groupA">Group A</option>
             <option value="groupB">Group B</option>
         </select>
@@ -24,10 +25,7 @@
     </div>
 </div>
                 <div class="col-md-3 col-sm-3 marT25">
-                    <a id="caseSelect" class="btn btn-primary center-block">Select</a>
-                </div>
-                <div class="col-md-3 col-sm-3 marT25">
-                    <a id="email" class="btn btn-primary center-block">Notify Jurors</a>
+                    <a id="sms" class="btn btn-primary center-block">Notify Jurors</a>
                 </div>
             </div>
         </div>
@@ -93,11 +91,15 @@
             $("#jurorList").removeClass("hidden");
         }
 
+        textSuccess = function () {
+            console.log("sms success");
+        }
+
         ajaxError = function (error) {
             console.log(error);
         }
 
-        $("#caseSelect").on("click", function () {
+        $("select").on("change", function () {
             var group = $("#cases").val();
             getCase(group, groupSuccess, ajaxError);
         });

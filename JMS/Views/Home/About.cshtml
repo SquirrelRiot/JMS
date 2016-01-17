@@ -1,7 +1,122 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Check-in";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2 class="col-lg-offset-4"> Welcome! Please check in.</h2>
+<br />  
+<div class="col-lg-offset-5">
+    <button type="button" id="checkIn1" class="btn-primary">check in1</button>
+    <button type="button" id="checkIn2" class="btn-primary">check in2</button>
+</div>
+@section scripts {
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false&language=en"></script>
+
+    <script type="text/javascript">
+
+        //$('#checkIn1').on('click', getLocation1);
+
+        $('#checkIn2').on('click', getLocation2);
+
+        ////grabs location upon load up
+        //function getLocation1() {
+        //    console.log("I'm reacting");
+        //    if (navigator.geolocation) {
+        //        navigator.geolocation.getCurrentPosition(getLocation, showError);
+        //    } else {
+        //        x.innerHTML = "Geolocation is not supported by this browser.";
+        //    }
+        //};
+
+        //function getLocation(position) {
+        //    var userLat = position.coords.latitude;
+        //    var userLon = position.coords.longitude;
+
+        //    var courtHouseLat = 33.9581644;
+        //    var courtHouseLon = -118.23149890000002;
+
+        //    userLocation = userLat + "," + userLon;
+        //    console.log(userLocation);
+
+        //    LatLng1 = new google.maps.LatLng({ lat: userLat, lng: userLon });
+        //    latLng2 = new google.maps.LatLng({ lat: courtHouseLat, lng: courtHouseLon });
+
+        //    computeDistance(LatLng1, latLng2);
+        //}
+
+        //function computeDistance(L1, L2) {
+        //    distance = google.maps.geometry.spherical.computeDistanceBetween(L1, L2);
+        //    console.log(distance + " " + "meters");
+
+        //    if (distance > 9.144) {
+        //        //failure sweetnote
+        //        console.log("FAILURE!!!!!!");
+        //    } else {
+        //        // success sweetnote- redirect to info page
+        //        //window.location.assign("http://http://localhost:50896/Home/Info");
+        //    }
+        //}
+
+
+        function getLocation2() {
+            console.log("I'm reacting");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(getLocation, showError);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        };
+
+        function getLocation(position) {
+            var userLat = position.coords.latitude;
+            var userLon = position.coords.longitude;
+
+            var courtHouseLat = 33.951113299999996;
+            var courtHouseLon = -118.24973859999999;
+
+            userLocation = userLat + "," + userLon;
+            console.log(userLocation);
+
+            LatLng1 = new google.maps.LatLng({ lat: userLat, lng: userLon });
+            latLng2 = new google.maps.LatLng({ lat: courtHouseLat, lng: courtHouseLon });
+
+            computeDistance(LatLng1, latLng2);
+        }
+
+        function computeDistance(L1, L2) {
+            distance = google.maps.geometry.spherical.computeDistanceBetween(L1, L2);
+            console.log(distance + " " + "meters");
+
+            if (distance > 9.144) {
+                //failure sweetnote
+                console.log("FAILURE!!!!!");
+            } else {
+                // success sweetnote- redirect to info page
+                window.location.assign("http://http://localhost:50896/Home/Info");
+            }
+        }
+
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+
+
+
+
+    </script>
+
+}

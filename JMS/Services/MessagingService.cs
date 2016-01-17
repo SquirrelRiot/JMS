@@ -17,11 +17,11 @@ namespace JMS.Services
     {
         private static readonly string _siteAdminEmailAddress = ConfigurationManager.AppSettings["SiteAdminEmailAddress"];
 
-        public static async Task SendConfirmationEmail(JuryModel model) //****guide
+        public static async Task SendConfirmationEmail() //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
-            myMessage.AddTo(model.Email);
-            myMessage.From = new MailAddress(_siteAdminEmailAddress, "JCP Team");
+            myMessage.AddTo("brijesh16386@gmail.com");
+            myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
             myMessage.Subject = "Confirm Email";
             string path = HttpContext.Current.Server.MapPath("~/Template/ScheduledConfirm.html");
             string contents = File.ReadAllText(path);
@@ -32,15 +32,15 @@ namespace JMS.Services
         public static async Task CompletionMail(JuryModel model) //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
-      
-            myMessage.AddTo(model.Email);
-            myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
-            myMessage.Subject = "Confirm Email";
-            string path = HttpContext.Current.Server.MapPath("~/Template/CompletionEmail.html");
-            string contents = File.ReadAllText(path);
-            myMessage.Html = contents;
-            await SendAsync(myMessage);
 
+                myMessage.AddTo(model.Email);
+                myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
+                myMessage.Subject = "Confirm Email";
+                string path = HttpContext.Current.Server.MapPath("~/Template/CompletionEmail.html");
+                string contents = File.ReadAllText(path);
+                myMessage.Html = contents;
+                await SendAsync(myMessage);
+            
         }
 
         private static async Task SendAsync(ISendGrid message)
