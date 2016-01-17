@@ -23,19 +23,12 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult CheckIn()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
-        {
-            return View();
-        }
-
-        public ActionResult Info()
         {
             return View();
         }
@@ -47,7 +40,7 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult JuryQualify()
+        public ActionResult Qualify()
         {
             return View();
         }

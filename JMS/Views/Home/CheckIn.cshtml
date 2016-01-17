@@ -1,12 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Check-in";
+    ViewBag.Title = "CheckIn";
 }
 
 <h2 class="col-lg-offset-4"> Welcome! Please check in.</h2>
-<br />  
+<br />
 <div class="col-lg-offset-5">
-    <button type="button" id="checkIn1" class="btn-primary">check in1</button>
-    <button type="button" id="checkIn2" class="btn-primary">check in2</button>
+    <button type="button" id="checkIn1" class="btn-primary">check in</button>
+    <button type="button" id="checkIn2" class="btn-primary">check in</button>
 </div>
 @section scripts {
 
@@ -28,7 +28,7 @@
             }
         };
 
-        calculateLocation1 = function(position) {
+        calculateLocation1 = function (position) {
             var userLat = position.coords.latitude;
             var userLon = position.coords.longitude;
 
@@ -44,7 +44,7 @@
             computeDistance1(LatLng1, latLng2);
         }
 
-        computeDistance1 = function(L1, L2) {
+        computeDistance1 = function (L1, L2) {
             distance = google.maps.geometry.spherical.computeDistanceBetween(L1, L2);
             console.log(distance + " " + "meters");
 
@@ -65,7 +65,7 @@
             }
         };
 
-        calculateLocation2 = function(position) {
+        calculateLocation2 = function (position) {
             var userLat = position.coords.latitude;
             var userLon = position.coords.longitude;
 
@@ -81,7 +81,7 @@
             computeDistance2(LatLng1, latLng2);
         }
 
-        computeDistance2 = function(L1, L2) {
+        computeDistance2 = function (L1, L2) {
             distance = google.maps.geometry.spherical.computeDistanceBetween(L1, L2);
             console.log(distance + " " + "meters");
 
@@ -90,7 +90,7 @@
             } else {
                 success();
             }
-            }
+        }
 
         //Callbacks
         function success() {
@@ -105,8 +105,8 @@
                 title: "Thank You! You are now checked in! ",
                 text: "Your time stamp: " + timeStamp,
                 type: "success",
-            }, 
-            function() { window.location.assign("http://localhost:50896/Home/Info"); });
+            },
+            function () { window.location.assign("http://localhost:50896/Home/faq"); });
         }
 
         function failure() {
@@ -114,7 +114,7 @@
                 title: "Error!",
                 text: "You need to be at the assigned courthouse in order to check-in.",
                 type: "error",
-            }, 
+            },
            function () { window.location.reload(); });
         }
 
@@ -139,3 +139,17 @@
     </script>
 
 }
+
+
+@*For sweetalerts button*@
+<style type="text/css">
+    .sweet-alert button {
+        background-color: #df691a !important;
+    }
+
+    .btn-primary {
+        padding: 8px !important;
+        margin-right: 10px;
+    }
+</style>
+
