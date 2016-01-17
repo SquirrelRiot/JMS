@@ -18,6 +18,11 @@ namespace JMS.Controllers
             return View();
         }
 
+        public ActionResult List()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,8 +32,6 @@ namespace JMS.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
