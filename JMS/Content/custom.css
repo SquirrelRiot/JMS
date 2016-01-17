@@ -38,6 +38,10 @@
     max-width:320px;
 }
 
+.marB0 {
+    margin-bottom: 0 !important;
+}
+
 .marT25 {
     margin-top: 25px !important;
 }
