@@ -32,6 +32,7 @@ namespace JMS.Services
         public static async Task CompletionMail(JuryModel model) //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
+      
             myMessage.AddTo(model.Email);
             myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
             myMessage.Subject = "Confirm Email";

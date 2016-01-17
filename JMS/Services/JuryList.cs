@@ -80,6 +80,19 @@ namespace JMS.Services
             }
         }
 
+        public static JuryModel GetJuror(int id)
+        {
+            JuryModel model = new JuryModel();
+            for (int i = 0; i < _list.Count(); i++)
+            {
+                if (id == _list[i].JuryId)
+                {
+                    return _list[i];
+                }
+            }
+            return model;
+        }
+
         public static List<JuryModel> GetAll()
         {
             return _list;
