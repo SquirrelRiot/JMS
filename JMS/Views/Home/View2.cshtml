@@ -7,14 +7,14 @@
         <h2 id="require" class="text-center">You are required<br />to attend jury duty<br />for Orange County on:</h2>
         <h2 id="clicked" class="text-center hidden">You are confirmed<br />for Jury Duty on:</h2>
         <br /><br />
-        <h3 class="text-center">Date: <span id="spanDate"> </span>  <span id="otherDate"> </span></h3>
-        <br /><br />
-        <h3 class="text-center">Check-in: 11am</h3>
+
+<div class="row">
+    <div class="col-med-3 col-sm-3">
+        <button id="confirm" onclick="confirm()" class="btn btn-primary center-block marB10">Confirm</button>
     </div>
-    <br />
-    <div>
-        <button id="confirm" onclick="confirm()" class="btn btn-primary center-block">Confirm</button>
-        <button id="reschedule" class="btn btn-danger">Reschedule</button>
+    <div class="col-med-3 col-sm-3">
+        <button id="reschedule" class="btn btn-danger center-block">Reschedule</button>
+    </div>
     </div>
 
 <script type="text/javascript" src="~/Scripts/sweetalert.min.js"></script>
