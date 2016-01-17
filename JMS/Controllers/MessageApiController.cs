@@ -35,10 +35,16 @@ namespace JMS.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            await MessagingService.CompletionEMail(model);
+            await MessagingService.CompletionMail(model);
 
             return Request.CreateResponse();
 
+        }
+
+        [Route(), HttpGet]
+        public void SendText()
+        {
+            MessagingService.SendText();
         }
 
     }

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "View2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<style>
+    .col-centered {
+        float: none;
+        margin: 0 auto;
+    }
+</style>
+
+
+<body>
+
+    <div class="row">
+        <h2 class="col-centered">You are required to attend jury duty for L.A County on:</h2>
+        <br /><br />
+        <h3 class="col-centered">Date: <span id="spanDate"> </span>  <span id="otherDate"> </span></h3>
+        <br /><br />
+        <h3 class="col-centered">Check-in: 11am</h3>
+    </div>
+    <br />
+    <div class="col-centered">
+        <button id="confirm" onclick="confirm()" class="btn-primary">Confirm</button>
+        <button id="reschedule" class="btn-danger">Reschedule</button>
+    </div>
+
+</body>
+
+
+<script type="text/javascript">
+
+    function confirm() {
+        alert('Thank You for your confirmation!');
+    };
+
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+'August', 'September', 'October', 'November', 'December'];
+    var tomorrow = new Date();
+    tomorrow.setTime(tomorrow.getTime() + (1000 * 114600 * 24));
+    document.getElementById("spanDate").innerHTML = months[tomorrow.getMonth()] + " " + tomorrow.getDate() + ", " + tomorrow.getFullYear();
+
+    var reschedule = document.getElementById('reschedule');
+    reschedule.onclick = function () { //!!!
+        document.getElementById('spanDate').remove();
+        this.remove();
+
+        document.getElementById("otherDate").innerHTML = new Date();
+        tomorrow.setTime(tomorrow.getTime() + (1000 * 164600 * 24));
+        document.getElementById("otherDate").innerHTML = months[tomorrow.getMonth()] + " " + tomorrow.getDate() + ", " + tomorrow.getFullYear();
+    };
+
+</script>

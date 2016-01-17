@@ -16,13 +16,13 @@
             <div class="panel-body">
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group marT25">
-                        <select class="form-control" id="cases" name="cases">
-                            <option value="groupA">Group A</option>
-                            <option value="groupB">Group B</option>
-                        </select>
-                        <br>
-                    </div>
-                </div>
+        <select class="form-control" id="cases" name="cases">
+            <option value="groupA">Group A</option>
+            <option value="groupB">Group B</option>
+        </select>
+        <br>
+    </div>
+</div>
                 <div class="col-md-3 col-sm-3 marT25">
                     <a id="caseSelect" class="btn btn-primary center-block">Select</a>
                 </div>
@@ -68,19 +68,19 @@
             $.ajax(url, settings);
         }
 
-        //textJurors = function (group, onSuccess, onError) {
-        //    var url = "/api/message/" + group;
-        //    var settings = {
-        //        cache: false,
-        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        //        type: 'get',
-        //        dataType: "json",
-        //        success: onSuccess,
-        //        error: onError
-        //    }
+        textJurors = function (onSuccess, onError) {
+            var url = "/api/message";
+            var settings = {
+                cache: false,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                type: 'get',
+                dataType: "json",
+                success: onSuccess,
+                error: onError
+            }
 
-        //    $.ajax(url, settings);
-        //}
+            $.ajax(url, settings);
+        }
 
         groupSuccess = function (data) {
 
@@ -102,5 +102,9 @@
             getCase(group, groupSuccess, ajaxError);
         });
 
-    </script>
+        $("#sms").on("click", function () {
+            textJurors(textSuccess, ajaxError);
+        });
+
+    </script>    
 }
