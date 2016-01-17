@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Cases";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cases</h2>
+
+<div class="form-group">
+    <div class="col-lg-10">
+        <select class="form-control" id="cases" name="cases">
+            <option value="groupA">Group A</option>
+            <option value="groupB">Group B</option>
+        </select>
+        <br>
+    </div>
+</div>
+
+<a id="caseSelect" class="btn btn-primary">Select</a>
+<a id="email" class="btn btn-primary">Notify Jurors</a>
+
+<div>
+    <ul id="group"></ul>
+</div>
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        var currentGroup = [];
+
+        getCase = function (group, onSuccess, onError) {
+            var url = "/api/jury/case/" + group;
+            var settings = {
+                cache: false,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                type: 'get',
+                dataType: "json",
+                success: onSuccess,
+                error: onError
+            }
+
+            $.ajax(url, settings);
+        }
+
+        //textJurors = function (group, onSuccess, onError) {
+        //    var url = "/api/message/" + group;
+        //    var settings = {
+        //        cache: false,
+        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        //        type: 'get',
+        //        dataType: "json",
+        //        success: onSuccess,
+        //        error: onError
+        //    }
+
+        //    $.ajax(url, settings);
+        //}
+
+        groupSuccess = function (data) {
+            $("#group").html("");
+            currentGroup = (data.Item);
+            for (var i = 0; i < currentGroup.length; i++) {
+                var id = "<li>" + currentGroup[i] + "</li>";
+                $("#group").append(id);
+            }
+        }
+
+        ajaxError = function (error) {
+            console.log(error);
+        }
+
+        $("#caseSelect").on("click", function () {
+            var group = $("#cases").val();
+            getCase(group, groupSuccess, ajaxError);
+        });
+
+    </script>    
+    
+}
