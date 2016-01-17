@@ -97,10 +97,6 @@ namespace JMS.Services
         {
             return _list;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     }
     
 }
