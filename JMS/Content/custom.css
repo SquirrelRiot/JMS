@@ -1,15 +1,15 @@
-﻿/*font-family: 'Crimson Text', serif;*/
+﻿/*font-family: 'Black Ops One', cursive;*/
 
 #nav-logo {
     padding-top: 5px !important;
 }
 
 #nav-main {
-    min-height: 57px;
+    min-height: 52px;
 }
 
 #nav-links {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 #nav-header {
@@ -17,11 +17,11 @@
 }
 
 .navbar-header {
-    min-height: 57px !important;
+    min-height: 52px !important;
 }
 
 .font-logo {
-    font-family: 'Crimson Text', serif !important;
+    font-family: 'Special Elite', cursive !important;
 }
 
 .blue-text {
@@ -59,7 +59,7 @@
 }
 
 .footer-text {
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 0.11em;
 }
 
