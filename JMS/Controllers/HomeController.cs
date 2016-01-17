@@ -23,10 +23,8 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult CheckIn()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
