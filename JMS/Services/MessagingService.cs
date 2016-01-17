@@ -28,7 +28,7 @@ namespace JMS.Services
             await SendAsync(myMessage);
 
         }
-        public static async Task CompletionEMail(JuryModel model) //****guide
+        public static async Task CompletionMail(JuryModel model) //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
             myMessage.AddTo(model.Email);
