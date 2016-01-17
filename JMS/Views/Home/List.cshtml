@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <div>
@@ -18,14 +18,12 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group marT25">
                         <select class="form-control" id="cases" name="cases">
+                            <option>Select</option>
                             <option value="groupA">Group A</option>
                             <option value="groupB">Group B</option>
                         </select>
                         <br>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-3 marT25">
-                    <a id="caseSelect" class="btn btn-primary center-block">Select</a>
                 </div>
                 <div class="col-md-3 col-sm-3 marT25">
                     <a id="email" class="btn btn-primary center-block">Send Email</a>
@@ -54,7 +52,7 @@
 
     <script type="text/javascript">
         var listEmail = [];
-
+        var myList = {};
         loadCoursesList = function (onSuccess, onError) {
             var url = "/api/jury/list";
             var settings = {
@@ -72,10 +70,10 @@
         onSuccess = function (data) {
 
             $("#group").html("");
-            listItem = data.Item;
+            myList = data.Item;
 
-            for (var i = 0; i < listItem.length; i++) {
-                var jury = "<li class='list-group-item'><span class='badge'></span>" + listItem[i].Email + "</li>";
+            for (var i = 0; i < myList.length; i++) {
+                var jury = "<li class='list-group-item'><span class='badge'></span>" + myList[i].Email + "</li>";
                 $("#group").append(jury);
                 $("#jurorList").removeClass("hidden");
             }
@@ -85,13 +83,13 @@
             console.log(response);
         }
 
-        sendEmail = function (data, onEmailData, onEmailError) {
+        sendEmail = function (singleEmail, onEmailData, onEmailError) {
             var url = "/api/message/Complete";
             var settings = {
                 cache: false
-                , contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+               
                 , dataType: "json"
-                , data: data
+                , data: singleEmail
                 , success: onEmailSuccess
                 , error: onEmailError
                 , type: "Post"
@@ -107,17 +105,18 @@
             console.log(response);
         }
 
-        $("#caseSelect").on("click", function () {
+        $("select").on("change", function () {
             loadCoursesList(onSuccess, onError);
         });
 
         $("#email").on("click", function () {
             var data = [];
-            for (var i = 0; i < listItem.length; i++) {
-                data.push(listItem[i].Email);
+            for (var i = 0; i < myList.length; i++) {
+                var newEmail = { 'Email': myList[i].Email };
+                sendEmail(newEmail, onEmailSuccess, onEmailError);
             }
             console.log(data)
-            sendEmail(data, onEmailSuccess, onEmailError);
+           
         });
 
 

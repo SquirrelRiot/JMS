@@ -4,12 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Jury Adjourned</title>
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text:700' rel='stylesheet' type='text/css'>
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css">
-    <link href="~/Content/sweetalert.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -24,20 +23,18 @@
                 </button>
                 <div>
                     <a id="nav-logo" class="navbar-brand" href="~/Views/Home/Index.cshtml"><img src="~/images/Jury-Nav-Logo_x200.png" /></a>
-            </div>
+                </div>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul id="nav-links" class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Confirmation", "View2", "Home")</li>
-                    <li>@Html.ActionLink("Info", "FAQ", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Check In", "Cases", "Home")</li>
+                    <li>@Html.ActionLink("Completion", "List", "Home")</li>
                 </ul>
             </div>
         </div>
     </nav>
- 
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -51,3 +48,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

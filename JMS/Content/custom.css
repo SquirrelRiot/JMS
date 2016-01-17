@@ -1,7 +1,27 @@
-﻿/*font-family: 'Shadows Into Light Two', cursive;*/
+﻿/*font-family: 'Crimson Text', serif;*/
 
-.font-cursive {
-    font-family: 'Shadows Into Light Two', cursive !important;
+#nav-logo {
+    padding-top: 5px !important;
+}
+
+#nav-main {
+    min-height: 57px;
+}
+
+#nav-links {
+    padding-top: 10px;
+}
+
+#nav-header {
+    margin-top: 10px;
+}
+
+.navbar-header {
+    min-height: 57px !important;
+}
+
+.font-logo {
+    font-family: 'Crimson Text', serif !important;
 }
 
 .blue-text {
@@ -36,6 +56,11 @@
 .col-max {
     /* custom max width */
     max-width:320px;
+}
+
+.footer-text {
+    font-size: 16px;
+    letter-spacing: 0.11em;
 }
 
 .marB0 {

@@ -12,30 +12,29 @@ namespace JMS.Controllers
  
     [RoutePrefix("api/message")]
     public class MessageApiController : ApiController
-    {
-        
+    {   
         [Route("ConfirmEmail"), HttpPost]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> SendConfirmMail(JuryModel model)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> SendConfirmMail()
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
            
-           await  MessagingService.SendConfirmationEmail(model);
+           await  MessagingService.SendConfirmationEmail();
 
             return Request.CreateResponse();
 
         }
         [Route("Complete"), HttpPost]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> Completion(List<string> emails)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> Completion(JuryModel model)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            await MessagingService.CompletionMail(emails);
+            await MessagingService.CompletionMail(model);
 
             return Request.CreateResponse();
 
