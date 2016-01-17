@@ -33,11 +33,6 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult Info()
-        {
-            return View();
-        }
-
         public ActionResult View2()
         {
             ViewBag.Message = "Your contact page.";
@@ -45,7 +40,7 @@ namespace JMS.Controllers
             return View();
         }
 
-        public ActionResult JuryQualify()
+        public ActionResult Qualify()
         {
             return View();
         }
