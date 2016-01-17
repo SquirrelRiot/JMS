@@ -20,7 +20,8 @@
                     <div class="form-group center">
                         <label for="inputJurorId" class="col-lg-2 control-label">Juror ID</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputJurorID" name="inputJurorID" placeholder="9 digit Juror ID">
+                            <input type="text" class="form-control" id="inputJurorID"
+                                    name="inputJurorID" placeholder="9 digit Juror ID">
                         </div>
                     </div>
                     <div class="form-group center">
@@ -48,6 +49,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+
             $("#jurorIdSubmit").on("click", confirmCheckIn);
         });
 
@@ -56,6 +58,7 @@
             window.open("/Home/View2", '_self');
         }
 
+        function validateData()
 
 
 

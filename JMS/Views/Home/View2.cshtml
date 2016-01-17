@@ -35,7 +35,26 @@
 <script type="text/javascript">
 
     function confirm() {
-        alert('Thank You for your confirmation!');
+        sendEmail = function (onEmailSuccess, onEmailError) {
+            var url = "/api/message/ConfirmEmail";
+            var settings = {
+                cache: false
+                , dataType: "json"
+                , success: onEmailSuccess
+                , error: onEmailError
+                , type: "Post"
+            };
+
+            $.ajax(url, settings);
+        }
+        onEmailSuccess = function (response) {
+            console.log(response);
+        }
+        onEmailError = function (response) {
+            console.log(response);
+        }
+
+        sendEmail(onEmailSuccess, onEmailError);
     };
 
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
