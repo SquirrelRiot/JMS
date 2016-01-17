@@ -79,5 +79,18 @@ namespace JMS.Services
                     return _groupNA;
             }
         }
+
+        public static JuryModel GetJuror(int id)
+        {
+            JuryModel model = new JuryModel();
+            for (int i = 0; i < _list.Count(); i++)
+            {
+                if (id == _list[i].JuryId)
+                {
+                    return _list[i];
+                }
+            }
+            return model;
+        }
     }
 }
