@@ -26,5 +26,10 @@ namespace JMS.Controllers
 
             return View();
         }
+
+        public ActionResult Info()
+        {
+            return View();
+        }
     }
 }
