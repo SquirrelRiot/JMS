@@ -17,7 +17,7 @@ namespace JMS.Services
         {
             _list = new List<JuryModel>()
             {
-                new JuryModel() {JuryId = 12345, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "2134234444", Email = "brijesh16386@gmail.com"},
+                new JuryModel() {JuryId = 12345, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "2134234444", Email = "xyz@gmail.com"},
                 new JuryModel() {JuryId = 12364, CheckedIn = false, Completed = false, DaysAvailable = 1, Phone = "8888888888", Email = "person@email.com"},
                 new JuryModel() {JuryId = 12532, CheckedIn = false, Completed = false, DaysAvailable = 5, Phone = "1111111111", Email = "jury@email.com"},
                 new JuryModel() {JuryId = 32152, CheckedIn = false, Completed = false, DaysAvailable = 3, Phone = "1112331111", Email = "jury2@email.com"}
