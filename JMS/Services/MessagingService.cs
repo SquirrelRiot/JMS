@@ -20,7 +20,7 @@ namespace JMS.Services
         public static async Task SendConfirmationEmail() //****guide
         {
             SendGridMessage myMessage = new SendGridMessage();
-            myMessage.AddTo("brijesh16386@gmail.com");
+            myMessage.AddTo("xyz@gmail.com");
             myMessage.From = new MailAddress(_siteAdminEmailAddress, "The Honor System");
             myMessage.Subject = "Confirm Email";
             string path = HttpContext.Current.Server.MapPath("~/Template/ScheduledConfirm.html");
@@ -45,7 +45,7 @@ namespace JMS.Services
 
         private static async Task SendAsync(ISendGrid message)
         {
-            var credentials = new NetworkCredential("Gregorio", "LosAngeles8!");
+            var credentials = new NetworkCredential("xyz", "12345!");
 
             var trasportToWeb = new SendGrid.Web(credentials);
 
@@ -55,12 +55,12 @@ namespace JMS.Services
 
         public static void SendText()
         {
-            string AccountSid = "AC452813c46fd124fcfc48dcd617629b88";
-            string AuthToken = "cfe9efda0c5bf9ce8da79d593f8148ef";
+            string AccountSid = "yourAccoundSid";
+            string AuthToken = "Your token";
             TwilioRestClient twilio = new TwilioRestClient(AccountSid, AuthToken);
 
-            string TwilioNumber = "+12016853569";
-            string SendNumber = "+13233604432";
+            string TwilioNumber = "1234";
+            string SendNumber = "123456";
             string text = "You have been selected for a case, please report back to the room in 1 hour";
 
             var message = twilio.SendMessage(TwilioNumber, SendNumber, text);
